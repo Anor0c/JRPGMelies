@@ -27,7 +27,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            return new Vector3(0, 0, 0);
+            return new Vector3(0, 1, 0);
         }
         return new Vector3(0, grav, 0);
     }

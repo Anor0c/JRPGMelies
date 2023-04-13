@@ -184,5 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143813e05b6038d49aca7028818759a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
-  grav: 9.87
+  currentSpeed: 1
+  walkSpeed: 1
+  speedMultiplier: 0.05
+  dashTime: 1
+  dashSpeed: 10
+  isDash: 0

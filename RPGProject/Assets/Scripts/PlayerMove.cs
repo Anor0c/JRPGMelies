@@ -1,12 +1,17 @@
-using UnityEngine.InputSystem; 
+using System.Collections;
 using UnityEngine;
-
+using UnityEngine.InputSystem; 
  
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float grav=9.87f;
+    [SerializeField] float currentSpeed = 1f;
+    [SerializeField] float walkSpeed = 1f;
+    [SerializeField] float speedMultiplier=1f;
+    [SerializeField] float dashTime=1f;
+    [SerializeField] float dashSpeed=10f;
+    [SerializeField] bool isDash = false;
     Vector2 inputDir;
+    Vector3 dashVector;
  
 
     CharacterController controller; 
@@ -14,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        currentSpeed = walkSpeed;
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -23,18 +29,48 @@ public class PlayerMove : MonoBehaviour
         inputDir = ctx.ReadValue<Vector2>(); 
     }
 
-    private Vector3 GravityVector()
+    public void OnDash(InputAction.CallbackContext obj)
+    {
+        if (isDash)
+            Debug.Log("Can't cancel ur dash");
+
+        if (obj.started)
+        {
+            StartCoroutine(DashRoutine());
+            dashVector = new Vector3(inputDir.x, 0, inputDir.y);
+        }       
+    }
+    private IEnumerator DashRoutine()
+    {
+        isDash = true;
+        currentSpeed = dashSpeed;
+        yield return new WaitForSeconds(dashTime);
+        isDash = false;
+        currentSpeed = walkSpeed;
+        yield return null;
+
+    }
+    /*private Vector3 GravityVector()
     {
         if (controller.isGrounded)
         {
-            return new Vector3(0, 1, 0);
+            return new Vector3(0, 0, 0);
         }
         return new Vector3(0, grav, 0);
+    }*/
+    private Vector3 PlayerDirection()
+    {
+        if (isDash)
+        {
+            return dashVector;
+        }
+        var _walkVector = new Vector3(inputDir.x, 0, inputDir.y) * currentSpeed * speedMultiplier;
+        return _walkVector;
     }
 
     void FixedUpdate()
     {
-        var _playerDir = new Vector3(inputDir.x, 0, inputDir.y); 
-        controller.Move(_playerDir*speed);
+        var _playerDir = PlayerDirection(); 
+        controller.Move(_playerDir);
     }
 }

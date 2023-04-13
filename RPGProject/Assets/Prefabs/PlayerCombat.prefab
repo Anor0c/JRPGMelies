@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 358836237}
   - component: {fileID: 358836238}
+  - component: {fileID: 358836239}
   m_Layer: 0
   m_Name: AttackHitbox
   m_TagString: Attack
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358836236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.10677397, y: 0.08490312, z: 0.2542975}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +46,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &358836239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358836236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434bb7ec81d1ae5438aba26784e27268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.3
+  damage: 1
 --- !u!1 &1974467956
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +85,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974467956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.10677397, y: 0.08490312, z: 0.2542975}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,7 +241,19 @@ MonoBehaviour:
     m_ActionId: 52df120b-d227-4c75-8444-6d164d46c81a
     m_ActionName: Combat/Attack[/Keyboard/j,/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2340947037798854744}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: abea82cc-8a04-4b19-be64-117591937a5e
     m_ActionName: Combat/Dash[/Keyboard/shift]
   - m_PersistentCalls:
@@ -262,8 +289,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143813e05b6038d49aca7028818759a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
-  grav: 9.87
+  currentSpeed: 1
+  walkSpeed: 1
+  speedMultiplier: 0.1
+  dashTime: 0.3
+  dashSpeed: 10
+  isDash: 0
 --- !u!114 &7483438764746574428
 MonoBehaviour:
   m_ObjectHideFlags: 0

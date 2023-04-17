@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class HealthBehaviour : MonoBehaviour
 {
     [SerializeField] float maxHealth = 10f, currentHealth;
@@ -13,7 +14,8 @@ public class HealthBehaviour : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= maxHealth)
+        Debug.Log(currentHealth);
+        if (currentHealth <= 0)
         {
             OnDeath.Invoke();
         }

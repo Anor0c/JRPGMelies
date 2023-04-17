@@ -8,6 +8,7 @@ public class AttackDamage : MonoBehaviour
     Collider hitbox;
     [SerializeField]float duration=1f;
     [SerializeField]float damage=1f;
+    [SerializeField]string ignoreTag; 
     private void Start()
     {
         hitbox = GetComponent<Collider>();
@@ -23,9 +24,16 @@ public class AttackDamage : MonoBehaviour
         Debug.Log("attack end!!");
         yield return null;
     }
+    //OnTriggerEnter ne marche qu'avec les GameObject ave un rigidBody pour une raison mystique
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject);
+        if (other.gameObject.tag == ignoreTag)
+        {
+            return;
+        }
         other.gameObject.TryGetComponent<HealthBehaviour>(out HealthBehaviour enemyHealth);
+        //exection si pas de heath behavciour
         enemyHealth.TakeDamage(damage);
     }
 }

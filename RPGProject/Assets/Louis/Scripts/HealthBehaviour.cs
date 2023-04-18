@@ -5,7 +5,14 @@ using UnityEngine.Events;
 public class HealthBehaviour : MonoBehaviour
 {
     [SerializeField] float maxHealth = 10f, currentHealth;
+    [SerializeField] EnemyScrpitable enemyStat;
     public UnityEvent OnDeath;
+    private void Awake()
+    {
+        if (enemyStat == null)
+            return;
+        maxHealth = enemyStat.maxHealth;
+    }
     void Start()
     {
         currentHealth = maxHealth; 

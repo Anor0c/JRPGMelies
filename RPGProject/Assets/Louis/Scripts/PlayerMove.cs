@@ -4,9 +4,11 @@ using UnityEngine.InputSystem;
  
 public class PlayerMove : MonoBehaviour
 {
+    [Header("Walk")]
     [SerializeField] float currentSpeed = 1f;
     [SerializeField] float walkSpeed = 1f;
     [SerializeField] float speedMultiplier=1f;
+    [Header("Dash")]
     [SerializeField] float dashTime=1f;
     [SerializeField] float dashSpeed=10f;
     [SerializeField] bool isDash = false;

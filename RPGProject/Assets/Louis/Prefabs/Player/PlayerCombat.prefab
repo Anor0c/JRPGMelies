@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  healthUI: {fileID: 0}
   enemyStat: {fileID: 0}
   OnDeath:
     m_PersistentCalls:

@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public class HealthBehaviour : MonoBehaviour
 {
     [SerializeField] float maxHealth = 10f, currentHealth;
+
+    [SerializeField] Image healthUI;
     [SerializeField] EnemyScrpitable enemyStat;
     public UnityEvent OnDeath;
     private void Awake()
@@ -22,6 +25,7 @@ public class HealthBehaviour : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log(currentHealth);
+        healthUI.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {
             OnDeath.Invoke();

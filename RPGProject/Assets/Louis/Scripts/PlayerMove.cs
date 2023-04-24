@@ -14,8 +14,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] bool isDash = false;
     Vector2 inputDir;
     Vector3 dashVector;
- 
 
+    public PlayerScriptable playerStat;
     CharacterController controller; 
 
     void Start()

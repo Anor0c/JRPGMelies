@@ -10,6 +10,19 @@ public class PlayerScriptable : ScriptableObject
     [Header("Movement")]
     public float walkSpeed; 
     public float dashSpeed; 
-    public float dashDuration; 
+    public float dashDuration;
+    [Header("Attack")]
+    public float attackSpeed;
 
+    public enum State
+    {
+        Tank,
+        Warrior,
+        Ninja
+    }
+
+    public void SwitchState()
+    {
+
+    }
 }

@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class HealthBehaviour : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 10f, currentHealth;
-
-    [SerializeField] Image healthUI;
+    [Header ("Scriptable")]
     [SerializeField] EnemyScrpitable enemyStat;
     [SerializeField] PlayerScriptable playerStat;
+
+    [SerializeField] float maxHealth = 10f, currentHealth;
+    [SerializeField] Image healthUI;
+
     public UnityEvent OnDeath;
     private void Awake()
     {
@@ -32,7 +34,8 @@ public class HealthBehaviour : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log(currentHealth);
-        healthUI.fillAmount = currentHealth / maxHealth;
+        if (healthUI != null)
+            healthUI.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {
             OnDeath.Invoke();

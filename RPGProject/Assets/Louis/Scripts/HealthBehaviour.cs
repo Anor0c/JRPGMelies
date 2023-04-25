@@ -13,18 +13,21 @@ public class HealthBehaviour : MonoBehaviour
     public UnityEvent OnDeath;
     private void Awake()
     {
-        if (enemyStat == null)
-            return;
-        maxHealth = enemyStat.maxHealth;
-        if (playerStat == null)
-            return;
-        maxHealth = playerStat.maxHealth;
+        OnChangedScriptable();
     }
     void Start()
     {
         currentHealth = maxHealth; 
     }
 
+    private void OnChangedScriptable()
+    {
+        if (enemyStat != null)
+            maxHealth = enemyStat.maxHealth;
+
+        if (playerStat != null)
+            maxHealth = playerStat.maxHealth;     
+    }
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

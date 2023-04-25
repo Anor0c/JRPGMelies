@@ -14,6 +14,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float dashTime=1f;
     [SerializeField] float dashSpeed=10f;
     [SerializeField] bool isDash = false;
+
+
     Vector2 inputDir;
     Vector3 dashVector;
 
@@ -21,10 +23,19 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        if (playerStat != null)
+            OnChangeScriptable();
+
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
     }
 
+    void OnChangeScriptable()
+    {
+        walkSpeed = playerStat.walkSpeed;
+        dashSpeed = playerStat.dashSpeed;
+        dashTime = playerStat.dashDuration;
+    }
     public void OnMove(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed)
@@ -65,7 +76,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (isDash)
         {
-            return dashVector;
+            return dashVector * currentSpeed * speedMultiplier;
         }
         var _walkVector = new Vector3(inputDir.x, 0, inputDir.y) * currentSpeed * speedMultiplier;
         return _walkVector;

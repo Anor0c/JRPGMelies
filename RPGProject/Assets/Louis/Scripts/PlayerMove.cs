@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
  
 public class PlayerMove : MonoBehaviour
 {
+    [Header("PlayerStat")]
+    public PlayerScriptable playerStat;
     [Header("Walk")]
     [SerializeField] float currentSpeed = 1f;
     [SerializeField] float walkSpeed = 1f;
@@ -15,7 +17,6 @@ public class PlayerMove : MonoBehaviour
     Vector2 inputDir;
     Vector3 dashVector;
 
-    public PlayerScriptable playerStat;
     CharacterController controller; 
 
     void Start()

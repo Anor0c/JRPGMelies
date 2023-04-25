@@ -9,12 +9,16 @@ public class HealthBehaviour : MonoBehaviour
 
     [SerializeField] Image healthUI;
     [SerializeField] EnemyScrpitable enemyStat;
+    [SerializeField] PlayerScriptable playerStat;
     public UnityEvent OnDeath;
     private void Awake()
     {
         if (enemyStat == null)
             return;
         maxHealth = enemyStat.maxHealth;
+        if (playerStat == null)
+            return;
+        maxHealth = playerStat.maxHealth;
     }
     void Start()
     {

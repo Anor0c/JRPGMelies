@@ -374,6 +374,7 @@ MonoBehaviour:
   currentHealth: 0
   healthUI: {fileID: 0}
   enemyStat: {fileID: 0}
+  playerStat: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -987,6 +988,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCombat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426395087189536514, guid: 36a5138b473d2d544bc13d5350df7fa6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1426395087189536516, guid: 36a5138b473d2d544bc13d5350df7fa6,
         type: 3}

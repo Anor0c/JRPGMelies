@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6083703129953498191}
   - component: {fileID: 3579100078041644594}
   - component: {fileID: 7483438764770257682}
+  - component: {fileID: 3441117986207745116}
   m_Layer: 0
   m_Name: PlayerRoaming
   m_TagString: Untagged
@@ -148,7 +149,19 @@ MonoBehaviour:
     m_ActionId: 19b9a4a6-a75b-45c5-9347-605dadc6b55b
     m_ActionName: Roaming/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3441117986207745116}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: OnInterractPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 73414b33-6d42-4086-be4d-0142c6303c77
     m_ActionName: Roaming/Interract[/Keyboard/e,/Keyboard/space,/Mouse/leftButton]
   - m_PersistentCalls:
@@ -184,9 +197,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143813e05b6038d49aca7028818759a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStat: {fileID: 0}
   currentSpeed: 1
-  walkSpeed: 1
+  walkSpeed: 2
   speedMultiplier: 0.05
   dashTime: 1
   dashSpeed: 10
   isDash: 0
+--- !u!114 &3441117986207745116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083703129953498184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faa1b64f7fc7dc41a5d6a81c036c714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0

@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RoamingTestLouis.unity
+    path: Assets/Louis/Scenes/RoamingTestLouis.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/CombatSceneLouis.unity
+    path: Assets/Louis/Scenes/CombatSceneLouis.unity
     guid: 3ee61e88b7b6a034f8c77027df1a9439
   m_configObjects: {}

@@ -5,6 +5,6 @@ public class SceneScript : MonoBehaviour
 {
     public void ToCombat()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("CombatSceneLouis");
     }
 }

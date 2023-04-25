@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7240963095449495841}
   - component: {fileID: 7240963095449495842}
   - component: {fileID: 8203685398265449240}
+  - component: {fileID: 1561768020961793363}
   m_Layer: 0
   m_Name: Ennemi
   m_TagString: Untagged
@@ -82,6 +83,22 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1561768020961793363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240963095449495843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3cb58638290ea4eae73047d23a08ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Gobelin
+  maxHealth: 10
+  shield: 0
+  baseSprite: {fileID: 7240963095502368731}
 --- !u!1 &7240963095502368725
 GameObject:
   m_ObjectHideFlags: 0

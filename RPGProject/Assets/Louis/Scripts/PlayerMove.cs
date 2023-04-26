@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem; 
+using UnityEngine.Events; 
  
 public class PlayerMove : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float dashSpeed=10f;
     [SerializeField] bool isDash = false;
 
+    public UnityEvent<Vector2> directionEvent;
 
     Vector2 inputDir;
     Vector3 dashVector;
@@ -40,7 +42,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (!ctx.performed)
             inputDir = Vector2.zero;
-        inputDir = ctx.ReadValue<Vector2>(); 
+        inputDir = ctx.ReadValue<Vector2>().normalized;
+        directionEvent.Invoke(ctx.ReadValue<Vector2>().normalized);
     }
 
     public void OnDash(InputAction.CallbackContext obj)

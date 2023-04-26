@@ -15,11 +15,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float dashTime=1f;
     [SerializeField] float dashSpeed=10f;
     [SerializeField] bool isDash = false;
-
+    [Header("Gravity")]
+    [SerializeField] bool isGrounded = false;
+    [SerializeField]float grav;
     public UnityEvent<Vector2> directionEvent;
 
     Vector2 inputDir;
     Vector3 dashVector;
+
 
     CharacterController controller; 
 
@@ -67,14 +70,14 @@ public class PlayerMove : MonoBehaviour
         yield return null;
 
     }
-    /*private Vector3 GravityVector()
+    private Vector3 GravityVector()
     {
-        if (controller.isGrounded)
+        if (isGrounded)
         {
             return new Vector3(0, 0, 0);
         }
         return new Vector3(0, grav, 0);
-    }*/
+    }
     private Vector3 PlayerDirection()
     {
         if (isDash)
@@ -87,7 +90,8 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        var _playerDir = PlayerDirection(); 
+        isGrounded = controller.isGrounded;
+        var _playerDir = PlayerDirection()+GravityVector(); 
         controller.Move(_playerDir);
     }
 }

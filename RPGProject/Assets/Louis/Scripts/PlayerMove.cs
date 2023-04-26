@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     [Header("Gravity")]
     [SerializeField] bool isGrounded = false;
     [SerializeField]float grav;
+    [Header("StunDebug")]
+    [SerializeField] bool isStun = false;
     public UnityEvent<Vector2> directionEvent;
 
     Vector2 inputDir;
@@ -51,8 +53,10 @@ public class PlayerMove : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext obj)
     {
+        if (isStun)
+            return;
         if (isDash)
-            Debug.Log("Can't cancel ur dash");
+            return;
 
         if (obj.started)
         {
@@ -86,6 +90,20 @@ public class PlayerMove : MonoBehaviour
         }
         var _walkVector = new Vector3(inputDir.x, 0, inputDir.y) * currentSpeed * speedMultiplier;
         return _walkVector;
+    }
+    public Vector3 ReceiveKnockBack(Vector3 _knockbackVector, float _stunDuration)
+    {
+        StartCoroutine(StunRoutine());
+        IEnumerator StunRoutine()
+        {
+            isStun = true;
+            yield return new WaitForSeconds(_stunDuration);
+            isStun = false;
+            yield return null;
+        }
+        if (!isStun)
+            return Vector3.zero;
+        return _knockbackVector;
     }
 
     void FixedUpdate()

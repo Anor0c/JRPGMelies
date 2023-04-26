@@ -42,8 +42,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (!ctx.performed)
             inputDir = Vector2.zero;
-        inputDir = ctx.ReadValue<Vector2>();
-        directionEvent.Invoke(inputDir);
+        inputDir = ctx.ReadValue<Vector2>().normalized;
+        directionEvent.Invoke(ctx.ReadValue<Vector2>().normalized);
     }
 
     public void OnDash(InputAction.CallbackContext obj)

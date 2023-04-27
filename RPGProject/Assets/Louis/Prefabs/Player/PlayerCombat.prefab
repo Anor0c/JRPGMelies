@@ -430,6 +430,9 @@ MonoBehaviour:
   dashTime: 0.3
   dashSpeed: 10
   isDash: 0
+  isGrounded: 0
+  grav: -0.987
+  isStun: 0
   directionEvent:
     m_PersistentCalls:
       m_Calls:

@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent (typeof(Collider))]
 public class KnockBack : MonoBehaviour
 {
-    [SerializeField] Collider col;
+     Collider col;
     [SerializeField] float kbAmount;
     [SerializeField] float stunDuration;
-    [SerializeField] Vector3 recieverPos;
+    Vector3 recieverPos;
     void Start()
     {
         col = GetComponent<Collider>();

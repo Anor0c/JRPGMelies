@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 
     Vector2 inputDir;
     Vector3 dashVector;
+    Vector3 kbVector;
 
 
     CharacterController controller; 
@@ -91,7 +92,7 @@ public class PlayerMove : MonoBehaviour
         var _walkVector = new Vector3(inputDir.x, 0, inputDir.y) * currentSpeed * speedMultiplier;
         return _walkVector;
     }
-    public Vector3 ReceiveKnockBack(Vector3 _knockbackVector, float _stunDuration)
+    public void ReceiveKnockBack(Vector3 _knockbackVector, float _stunDuration)
     {
         StartCoroutine(StunRoutine());
         IEnumerator StunRoutine()
@@ -101,15 +102,19 @@ public class PlayerMove : MonoBehaviour
             isStun = false;
             yield return null;
         }
-        if (!isStun)
-            return Vector3.zero;
-        return _knockbackVector;
-    }
 
-    void FixedUpdate()
+        kbVector= _knockbackVector;
+    }
+    private void Update()
     {
         isGrounded = controller.isGrounded;
-        var _playerDir = PlayerDirection()+GravityVector(); 
+        if (!isStun)
+            kbVector= Vector3.zero;
+    }
+    void FixedUpdate()
+    {
+
+        var _playerDir = PlayerDirection()+GravityVector()+kbVector; 
         controller.Move(_playerDir);
     }
 }

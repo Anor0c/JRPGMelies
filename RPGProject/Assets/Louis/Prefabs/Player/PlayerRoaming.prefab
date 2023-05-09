@@ -204,6 +204,11 @@ MonoBehaviour:
   dashTime: 1
   dashSpeed: 10
   isDash: 0
+  isGrounded: 0
+  grav: -0.987
+  directionEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3441117986207745116
 MonoBehaviour:
   m_ObjectHideFlags: 0

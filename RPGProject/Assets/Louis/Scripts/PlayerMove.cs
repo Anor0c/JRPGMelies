@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem; 
+using UnityEngine.Events; 
  
 public class PlayerMove : MonoBehaviour
 {
@@ -14,10 +15,17 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float dashTime=1f;
     [SerializeField] float dashSpeed=10f;
     [SerializeField] bool isDash = false;
-
+    [Header("Gravity")]
+    [SerializeField] bool isGrounded = false;
+    [SerializeField]float grav;
+    [Header("StunDebug")]
+    [SerializeField] bool isStun = false;
+    public UnityEvent<Vector2> directionEvent;
 
     Vector2 inputDir;
     Vector3 dashVector;
+    Vector3 kbVector;
+
 
     CharacterController controller; 
 
@@ -40,13 +48,16 @@ public class PlayerMove : MonoBehaviour
     {
         if (!ctx.performed)
             inputDir = Vector2.zero;
-        inputDir = ctx.ReadValue<Vector2>(); 
+        inputDir = ctx.ReadValue<Vector2>().normalized;
+        directionEvent.Invoke(ctx.ReadValue<Vector2>().normalized);
     }
 
     public void OnDash(InputAction.CallbackContext obj)
     {
+        if (isStun)
+            return;
         if (isDash)
-            Debug.Log("Can't cancel ur dash");
+            return;
 
         if (obj.started)
         {
@@ -64,14 +75,14 @@ public class PlayerMove : MonoBehaviour
         yield return null;
 
     }
-    /*private Vector3 GravityVector()
+    private Vector3 GravityVector()
     {
-        if (controller.isGrounded)
+        if (isGrounded)
         {
             return new Vector3(0, 0, 0);
         }
         return new Vector3(0, grav, 0);
-    }*/
+    }
     private Vector3 PlayerDirection()
     {
         if (isDash)
@@ -81,10 +92,29 @@ public class PlayerMove : MonoBehaviour
         var _walkVector = new Vector3(inputDir.x, 0, inputDir.y) * currentSpeed * speedMultiplier;
         return _walkVector;
     }
+    public void ReceiveKnockBack(Vector3 _knockbackVector, float _stunDuration)
+    {
+        StartCoroutine(StunRoutine());
+        IEnumerator StunRoutine()
+        {
+            isStun = true;
+            yield return new WaitForSeconds(_stunDuration);
+            isStun = false;
+            yield return null;
+        }
 
+        kbVector= _knockbackVector;
+    }
+    private void Update()
+    {
+        isGrounded = controller.isGrounded;
+        if (!isStun)
+            kbVector= Vector3.zero;
+    }
     void FixedUpdate()
     {
-        var _playerDir = PlayerDirection(); 
+
+        var _playerDir = PlayerDirection()+GravityVector()+kbVector; 
         controller.Move(_playerDir);
     }
 }

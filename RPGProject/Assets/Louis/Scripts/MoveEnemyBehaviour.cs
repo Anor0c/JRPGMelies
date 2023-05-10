@@ -8,7 +8,7 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
     PlayerMove player;
     NavMeshAgent AIAgent;
     float distanceToPlayer;
-    float moveTimer = 1f, currentMoveTime; 
+    [SerializeField]float moveTimer = 1f, currentMoveTime; 
    
     override public void OnStateEnter(Animator _animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -23,12 +23,13 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        AIAgent.Move(player.transform.position);
+        AIAgent.SetDestination(player.transform.position);
         currentMoveTime -= Time.deltaTime;
         Debug.Log("entr");
         if (currentMoveTime <= 0f)
         {
             animator.SetBool("isMove", false);
+            AIAgent.SetDestination(AIAgent.transform.position);
             Debug.Log("time0000");
         }
         else

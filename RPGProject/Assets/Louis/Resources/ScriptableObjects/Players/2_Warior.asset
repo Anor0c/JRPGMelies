@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d709bd063eca5438f5707c37238237, type: 3}
   m_Name: 2_Warior
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  walkSpeed: 0
-  dashSpeed: 0
-  dashDuration: 0
-  attackSpeed: 0
+  maxHealth: 15
+  walkSpeed: 3.75
+  dashSpeed: 7.5
+  dashDuration: 0.2
+  attackSpeed: 0.4

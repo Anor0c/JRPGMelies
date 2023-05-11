@@ -43,7 +43,7 @@ public class HealthBehaviour : MonoBehaviour
             playerStat = _playerStat; 
             maxHealth = playerStat.maxHealth;
             currentHealth = (currentHealth / previousMaxHealth) * maxHealth;
-            Debug.Log("Playerstat setup" + _playerStat);
+            Debug.Log("Playerstat setup" + _playerStat +"currentHealth is "+ currentHealth);
         }
         Debug.Log("PlayerStat is null"); 
     }
@@ -51,8 +51,10 @@ public class HealthBehaviour : MonoBehaviour
     {
         if (_enemyStat != null) 
         {
+            previousMaxHealth = maxHealth; 
             enemyStat = _enemyStat;
             maxHealth = enemyStat.maxHealth;
+            currentHealth = (currentHealth / previousMaxHealth) * maxHealth;
             Debug.Log("enemystat setup" + enemyStat); 
         }
         Debug.Log("EnemyStat is null");

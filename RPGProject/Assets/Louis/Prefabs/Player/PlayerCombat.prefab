@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 7483438764746574428}
   - component: {fileID: 7483438764746574429}
   - component: {fileID: 6083703129827710216}
+  - component: {fileID: 6083703129827710222}
   m_Layer: 0
   m_Name: PlayerCombat
   m_TagString: Player
@@ -426,7 +427,6 @@ MonoBehaviour:
   playerStat: {fileID: 0}
   currentSpeed: 1
   walkSpeed: 1
-  speedMultiplier: 0.1
   dashTime: 0.3
   dashSpeed: 10
   isDash: 0
@@ -520,6 +520,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6083703129827710222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426395087189536514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31ed4cae72b68840890577d74081670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statArray:
+  - {fileID: 11400000, guid: e952cce20baa090458de74a4b996eac7, type: 2}
+  - {fileID: 11400000, guid: 037e4670f981ff846b24aaeb43b8e180, type: 2}
+  - {fileID: 11400000, guid: c226c89ed8dfd96479e70e04b2b51fd9, type: 2}
+  playerMove: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!1 &7990726990892978512
 GameObject:
   m_ObjectHideFlags: 0

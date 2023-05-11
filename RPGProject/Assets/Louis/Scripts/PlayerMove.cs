@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class PlayerMove : MonoBehaviour
 {
     [Header("PlayerStat")]
-    public PlayerScriptable playerStat;
+    [SerializeField] PlayerScriptable playerStat;
     [Header("Walk")]
     [SerializeField] float currentSpeed = 1f;
     [SerializeField] float walkSpeed = 1f;
-    [SerializeField] float speedMultiplier=1f;
+    const float speedMultiplier = 0.1f;
     [Header("Dash")]
     [SerializeField] float dashTime=1f;
     [SerializeField] float dashSpeed=10f;
@@ -29,20 +29,25 @@ public class PlayerMove : MonoBehaviour
 
     CharacterController controller; 
 
-    void Start()
+    private void Start()
     {
+        playerStat = Resources.Load("ScriptableObjects/Players/Tank") as PlayerScriptable; 
         if (playerStat != null)
-            OnChangeScriptable();
+            OnChangeScriptable(playerStat);
+        else
+            Debug.Log("No Stat on " + this.gameObject); 
 
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;
     }
 
-    void OnChangeScriptable()
+    public void OnChangeScriptable(PlayerScriptable _stat)
     {
+        playerStat = _stat; 
         walkSpeed = playerStat.walkSpeed;
         dashSpeed = playerStat.dashSpeed;
         dashTime = playerStat.dashDuration;
+        currentSpeed = walkSpeed;
     }
     public void OnMove(InputAction.CallbackContext ctx)
     {
@@ -111,7 +116,7 @@ public class PlayerMove : MonoBehaviour
         if (!isStun)
             kbVector= Vector3.zero;
     }
-    void FixedUpdate()
+    private void FixedUpdate()
     {
 
         var _playerDir = PlayerDirection()+GravityVector()+kbVector; 

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 [RequireComponent (typeof(Collider))]
 public class KnockBack : MonoBehaviour
 {
@@ -15,13 +14,19 @@ public class KnockBack : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        //NE marche que pour le player, remember de l'adapter a l'enemy
-        _other.gameObject.TryGetComponent<PlayerMove>(out PlayerMove _player);
+        //pas opti de faire les 2 check a chaque collision, a revoir plus tard
+        _other.gameObject.TryGetComponent(out PlayerMove _player);
+        _other.gameObject.TryGetComponent(out NavMeshAgent _enemy);
         if (_player)
         {
             recieverPos = _player.gameObject.transform.position;
+            _player.ReceiveKnockBack(KnockbackDirection(), stunDuration);
         }
-        _player.ReceiveKnockBack(KnockbackDirection(), stunDuration);
+        if (_enemy)
+        {
+            recieverPos = _enemy.gameObject.transform.position;
+        }
+
     }
     Vector3 KnockbackDirection()
     {

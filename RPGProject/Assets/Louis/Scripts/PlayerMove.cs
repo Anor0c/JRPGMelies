@@ -16,7 +16,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float dashSpeed=10f;
     [SerializeField] bool isDash = false;
     [Header("Gravity")]
-    [SerializeField] bool isGrounded = false;
     [SerializeField]float grav;
     [Header("StunDebug")]
     [SerializeField] bool isStun = false;
@@ -82,7 +81,7 @@ public class PlayerMove : MonoBehaviour
     }
     private Vector3 GravityVector()
     {
-        if (isGrounded)
+        if (controller.isGrounded)
         {
             return new Vector3(0, 0, 0);
         }
@@ -112,14 +111,14 @@ public class PlayerMove : MonoBehaviour
     }
     private void Update()
     {
-        isGrounded = controller.isGrounded;
+        
         if (!isStun)
             kbVector= Vector3.zero;
     }
     private void FixedUpdate()
     {
 
-        var _playerDir = PlayerDirection()+GravityVector()+kbVector; 
+        var _playerDir = PlayerDirection()+GravityVector()*Time.deltaTime+kbVector; 
         controller.Move(_playerDir);
     }
 }

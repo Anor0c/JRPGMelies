@@ -25,6 +25,11 @@ public class MoveEnnemi : MonoBehaviour
         if (distance >= 3)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speedMove);
+            transform.LookAt(player.transform);
+            
+            Vector3 targetDirection = player.transform.position - transform.position; // Determine which direction to rotate towards
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 0.0f, 0.0f); // Rotate the forward vector towards the target direction
+            transform.rotation = Quaternion.LookRotation(newDirection); // Calculate a rotation a step closer to the target and applies rotation to this object
         }
     }
 }

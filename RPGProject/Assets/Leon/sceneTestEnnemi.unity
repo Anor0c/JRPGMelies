@@ -242,6 +242,12 @@ MonoBehaviour:
   dashTime: 1
   dashSpeed: 10
   isDash: 0
+  isGrounded: 0
+  grav: 0
+  isStun: 0
+  directionEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &619613419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -593,6 +599,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4908048456805642716, guid: bf052ba82f9f41943955457da4eb20bb,
+        type: 3}
+      propertyPath: speedMove
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240963095449495842, guid: bf052ba82f9f41943955457da4eb20bb,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7240963095449495843, guid: bf052ba82f9f41943955457da4eb20bb,
         type: 3}
       propertyPath: m_Name
@@ -611,7 +627,7 @@ PrefabInstance:
     - target: {fileID: 7240963095449495846, guid: bf052ba82f9f41943955457da4eb20bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 7240963095449495846, guid: bf052ba82f9f41943955457da4eb20bb,
         type: 3}
@@ -651,6 +667,16 @@ PrefabInstance:
     - target: {fileID: 7240963095449495846, guid: bf052ba82f9f41943955457da4eb20bb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240963095502368731, guid: bf052ba82f9f41943955457da4eb20bb,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240963095502368731, guid: bf052ba82f9f41943955457da4eb20bb,
+        type: 3}
+      propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

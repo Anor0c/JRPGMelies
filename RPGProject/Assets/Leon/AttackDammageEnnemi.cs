@@ -23,6 +23,7 @@ public class AttackDammageEnnemi : MonoBehaviour
         {
             Movechange.canMove = false;
             playerHealth.TakeDamage(damage);
+            gameObject.SetActive(false);
             Movechange.canMove = true;
         }
 

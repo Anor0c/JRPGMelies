@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51d709bd063eca5438f5707c37238237, type: 3}
-  m_Name: GlassCannon
+  m_Name: 2_Warior
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  walkSpeed: 5
-  dashSpeed: 12.5
+  maxHealth: 15
+  walkSpeed: 3.75
+  dashSpeed: 7.5
   dashDuration: 0.2
   attackSpeed: 0.4

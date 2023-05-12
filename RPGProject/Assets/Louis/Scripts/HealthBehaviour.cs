@@ -10,25 +10,54 @@ public class HealthBehaviour : MonoBehaviour
     [SerializeField] PlayerScriptable playerStat;
 
     [SerializeField] float maxHealth = 10f, currentHealth;
+    float previousMaxHealth; 
     [SerializeField] Image healthUI;
 
     public UnityEvent OnDeath;
     private void Awake()
     {
-        OnChangedScriptable();
+        if (playerStat != null)
+        {
+            OnChangedPlayerScriptable(playerStat);
+        }
+        //il faudrat changer la logique logique pour les ennemis 
+        else if (enemyStat != null)
+        {
+            OnChangedEnemyScriptable(enemyStat); 
+        }
+        else
+        {
+            Debug.Log("No stat on " + this.gameObject); 
+        }
     }
     void Start()
     {
         currentHealth = maxHealth; 
     }
 
-    private void OnChangedScriptable()
+    public void OnChangedPlayerScriptable(PlayerScriptable _playerStat)
+    {       
+        if (_playerStat != null)
+        {
+            previousMaxHealth = maxHealth;
+            playerStat = _playerStat; 
+            maxHealth = playerStat.maxHealth;
+            currentHealth = (currentHealth / previousMaxHealth) * maxHealth;
+            Debug.Log("Playerstat setup" + _playerStat +"currentHealth is "+ currentHealth);
+        }
+        Debug.Log("PlayerStat is null"); 
+    }
+    public void OnChangedEnemyScriptable(EnemyScrpitable _enemyStat)
     {
-        if (enemyStat != null)
+        if (_enemyStat != null) 
+        {
+            previousMaxHealth = maxHealth; 
+            enemyStat = _enemyStat;
             maxHealth = enemyStat.maxHealth;
-
-        if (playerStat != null)
-            maxHealth = playerStat.maxHealth;     
+            currentHealth = (currentHealth / previousMaxHealth) * maxHealth;
+            Debug.Log("enemystat setup" + enemyStat); 
+        }
+        Debug.Log("EnemyStat is null");
     }
     public void TakeDamage(float damage)
     {

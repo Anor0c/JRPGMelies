@@ -25,7 +25,7 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
     {
         AIAgent.SetDestination(player.transform.position);
         currentMoveTime -= Time.deltaTime;
-        Debug.Log("entr");
+        //Debug.Log("entr");
         if (currentMoveTime <= 0f)
         {
             animator.SetBool("isMove", false);

@@ -1170,6 +1170,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2340947037798854744, guid: 36a5138b473d2d544bc13d5350df7fa6,
+        type: 3}
+      propertyPath: grav
+      value: -9.87
+      objectReference: {fileID: 0}
     - target: {fileID: 6083703129827710216, guid: 36a5138b473d2d544bc13d5350df7fa6,
         type: 3}
       propertyPath: healthUI

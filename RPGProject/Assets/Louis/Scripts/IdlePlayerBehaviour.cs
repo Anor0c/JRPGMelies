@@ -5,12 +5,23 @@ using UnityEngine.AI;
 
 public class IdlePlayerBehaviour : StateMachineBehaviour
 {
-    float idleTimer=5f, currentTime;
+    [SerializeField]float idleTimer=5f, currentTime;
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         currentTime = idleTimer;
         var _agent = animator.GetComponent<NavMeshAgent>();
-        _agent.SetDestination(_agent.transform.position);
+
+        //_agent.SetDestination(_agent.transform.position);
+        if (animator.GetBool("isStun"))
+        {
+            OnForceIdle(animator.GetFloat("stunDuration")); 
+        }
+    }
+    public void OnForceIdle(float _stunTime)
+    {
+        currentTime = _stunTime;
+        Debug.Log("forced"); 
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

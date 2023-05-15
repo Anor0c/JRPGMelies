@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1297016583}
   - component: {fileID: 1297016582}
   - component: {fileID: 1297016579}
+  - component: {fileID: 1601842398}
   m_Layer: 0
   m_Name: AttackHitbox
   m_TagString: Attack
@@ -62,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.3
-  damage: 5
+  damage: 2
   ignoreTag: Player
 --- !u!33 &1297016583
 MeshFilter:
@@ -127,6 +128,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 2
+--- !u!114 &1601842398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358836236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3881c558a8f594e868ebf6e4b76e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kbAmount: 10
+  stunDuration: 1.5
+  additionalVector: {x: 0, y: 2, z: 0}
 --- !u!1 &1974467956
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,8 +446,7 @@ MonoBehaviour:
   dashTime: 0.3
   dashSpeed: 10
   isDash: 0
-  isGrounded: 0
-  grav: -0.987
+  grav: -9.87
   isStun: 0
   directionEvent:
     m_PersistentCalls:
@@ -532,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31ed4cae72b68840890577d74081670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statIndex: 0
   statArray:
   - {fileID: 11400000, guid: e952cce20baa090458de74a4b996eac7, type: 2}
   - {fileID: 11400000, guid: 037e4670f981ff846b24aaeb43b8e180, type: 2}

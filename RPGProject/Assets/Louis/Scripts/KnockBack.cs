@@ -6,6 +6,7 @@ public class KnockBack : MonoBehaviour
      Collider col;
     [SerializeField] float kbAmount;
     [SerializeField] float stunDuration;
+    [SerializeField] Vector3 additionalVector; 
     Vector3 recieverPos;
     void Start()
     {
@@ -16,7 +17,7 @@ public class KnockBack : MonoBehaviour
     {
         //pas opti de faire les 2 check a chaque collision, a revoir plus tard
         _other.gameObject.TryGetComponent(out PlayerMove _player);
-        _other.gameObject.TryGetComponent(out NavMeshAgent _enemy);
+        _other.gameObject.TryGetComponent(out ModifMoveEnemy _enemy);
         if (_player)
         {
             recieverPos = _player.gameObject.transform.position;
@@ -25,12 +26,13 @@ public class KnockBack : MonoBehaviour
         if (_enemy)
         {
             recieverPos = _enemy.gameObject.transform.position;
+            _enemy.OnKnockbackRecieved(KnockbackDirection(), stunDuration); 
         }
 
     }
     Vector3 KnockbackDirection()
     {
-        var _kbDir = recieverPos-transform.position;
+        var _kbDir = recieverPos - transform.position + additionalVector;
         _kbDir *= kbAmount;
         return _kbDir;
     }

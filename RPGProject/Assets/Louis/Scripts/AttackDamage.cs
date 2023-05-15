@@ -31,9 +31,10 @@ public class AttackDamage : MonoBehaviour
         if (other.gameObject.tag == ignoreTag)
             return;
 
-        other.gameObject.TryGetComponent<HealthBehaviour>(out HealthBehaviour enemyHealth);
+        other.gameObject.TryGetComponent(out HealthBehaviour enemyHealth);
         if (!enemyHealth)
             return;
         enemyHealth.TakeDamage(damage);
+        gameObject.SetActive(false); 
     }
 }

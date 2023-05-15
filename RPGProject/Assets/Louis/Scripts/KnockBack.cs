@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 [RequireComponent (typeof(Collider))]
 public class KnockBack : MonoBehaviour
 {
      Collider col;
     [SerializeField] float kbAmount;
     [SerializeField] float stunDuration;
+    [SerializeField] Vector3 additionalVector; 
     Vector3 recieverPos;
     void Start()
     {
@@ -15,17 +15,24 @@ public class KnockBack : MonoBehaviour
 
     private void OnTriggerEnter(Collider _other)
     {
-        //NE marche que pour le player, remember de l'adapter a l'enemy
-        _other.gameObject.TryGetComponent<PlayerMove>(out PlayerMove _player);
+        //pas opti de faire les 2 check a chaque collision, a revoir plus tard
+        _other.gameObject.TryGetComponent(out PlayerMove _player);
+        _other.gameObject.TryGetComponent(out ModifMoveEnemy _enemy);
         if (_player)
         {
             recieverPos = _player.gameObject.transform.position;
+            _player.ReceiveKnockBack(KnockbackDirection(), stunDuration);
         }
-        _player.ReceiveKnockBack(KnockbackDirection(), stunDuration);
+        if (_enemy)
+        {
+            recieverPos = _enemy.gameObject.transform.position;
+            _enemy.OnKnockbackRecieved(KnockbackDirection(), stunDuration); 
+        }
+
     }
     Vector3 KnockbackDirection()
     {
-        var _kbDir = recieverPos-transform.position;
+        var _kbDir = recieverPos - transform.position + additionalVector;
         _kbDir *= kbAmount;
         return _kbDir;
     }

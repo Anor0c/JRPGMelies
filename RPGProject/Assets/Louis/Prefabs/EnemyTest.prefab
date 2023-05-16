@@ -317,7 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1000
   damage: 1
-  ignoreTag: Enemy
+  ignoreTag:
+  - Invincible
 --- !u!114 &5059869612247266454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +352,7 @@ GameObject:
   - component: {fileID: 6609420630904414203}
   - component: {fileID: 1685423043}
   - component: {fileID: 1685423044}
+  - component: {fileID: 7039660388722688072}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -550,5 +552,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce9f767f23daedb49894ec9bb11ee78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7039660388722688072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059869612337279152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e2576903181a34ebca0f4b2dda66ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

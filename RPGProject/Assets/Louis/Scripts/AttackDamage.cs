@@ -6,12 +6,14 @@ using UnityEngine;
 public class AttackDamage : MonoBehaviour
 {
     Collider hitbox;
+    KnockBack knockBack; 
     [SerializeField]float duration=1f;
     [SerializeField]float damage=1f;
-    [SerializeField]string ignoreTag; 
+    [SerializeField] string[] ignoreTag = { "Invincible" }; 
     private void Start()
     {
         hitbox = GetComponent<Collider>();
+        knockBack = GetComponent<KnockBack>(); 
     }
     private void OnEnable()
     {
@@ -27,13 +29,28 @@ public class AttackDamage : MonoBehaviour
     //OnTriggerEnter ne marche qu'avec les GameObject ave un rigidBody ou un Chracter Controller pour une raison mystique
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
-        if (other.gameObject.tag == ignoreTag)
-            return;
+        bool _canAttack = true;
+        foreach (string _ignoreTag in ignoreTag)
+        {
+            if (other.gameObject.tag == _ignoreTag)
+            {
+                _canAttack = false;
+                Debug.Log(other.gameObject.tag);
+            }
+        }
 
-        other.gameObject.TryGetComponent<HealthBehaviour>(out HealthBehaviour enemyHealth);
-        if (!enemyHealth)
-            return;
-        enemyHealth.TakeDamage(damage);
+        if (_canAttack)
+        {
+            other.gameObject.TryGetComponent(out HealthBehaviour enemyHealth);
+            if (!enemyHealth)
+                return;
+            if (knockBack)
+            {
+                knockBack.OnAttackTouched(other); 
+            }
+            enemyHealth.TakeDamage(damage);
+            gameObject.SetActive(false);
+        }
+
     }
 }

@@ -13,7 +13,7 @@ public class KnockBack : MonoBehaviour
         col = GetComponent<Collider>();
     }
 
-    private void OnTriggerEnter(Collider _other)
+    public void OnAttackTouched (Collider _other)
     {
         //pas opti de faire les 2 check a chaque collision, a revoir plus tard
         _other.gameObject.TryGetComponent(out PlayerMove _player);

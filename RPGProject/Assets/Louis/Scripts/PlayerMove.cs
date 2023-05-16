@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     [Header("StunDebug")]
     [SerializeField] bool isStun = false;
     public UnityEvent<Vector2> directionEvent;
+    public UnityEvent<float> dashEvent; 
 
     Vector2 inputDir;
     Vector3 dashVector;
@@ -65,6 +66,7 @@ public class PlayerMove : MonoBehaviour
 
         if (obj.started)
         {
+            dashEvent.Invoke(dashTime); 
             StartCoroutine(DashRoutine());
             dashVector = new Vector3(inputDir.x, 0, inputDir.y);
         }       

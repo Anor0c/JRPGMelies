@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor.Animations;
 
 [CreateAssetMenu(fileName = "EnemyType", menuName = "EnemyType", order = 2)]
 public class EnemyScrpitable : ScriptableObject
@@ -12,11 +13,8 @@ public class EnemyScrpitable : ScriptableObject
     [Header("Speed")]
     public float speed;
 
-    [Header("Dammage")]
-    public float dammage;
-
-    [Header("Shield")]
-    public float shield;
+    [Header("Animator")]
+    public AnimatorController controller;  
 
     /*[Header("Basic sprite")]
     public SpriteRenderer baseSprite;

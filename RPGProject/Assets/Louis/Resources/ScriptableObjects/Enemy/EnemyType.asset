@@ -15,4 +15,4 @@ MonoBehaviour:
   ennemyName: 
   maxHealth: 0
   speed: 0
-  animator: {fileID: 0}
+  controller: {fileID: 0}

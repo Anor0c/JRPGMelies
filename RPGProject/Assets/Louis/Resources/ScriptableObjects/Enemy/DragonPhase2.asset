@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ebc81ff1d9766b44bcc66af634106ae, type: 3}
-  m_Name: EnemyType
+  m_Name: DragonPhase2
   m_EditorClassIdentifier: 
   ennemyName: 
-  maxHealth: 0
-  speed: 0
-  controller: {fileID: 0}
+  maxHealth: 10
+  speed: 10
+  controller: {fileID: 9100000, guid: 6fb7560f8609dd2459a14faf64bc59de, type: 2}

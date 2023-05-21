@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class BosSwitchPhase : MonoBehaviour
 {
-    HealthBehaviour health; 
-
-    void Start()
-    {
-        health = GetComponent<HealthBehaviour>(); 
-    }
+    public EnemyScrpitable bossStat; 
 
     public void BossChangePhase()
     {
-        Debug.Log("bossChange"); 
+        var animator = GetComponent<Animator>(); 
+        var health = GetComponent<HealthBehaviour>();
+        animator.runtimeAnimatorController = bossStat.controller; 
+        health.OnChangedEnemyScriptable(bossStat); 
+
     }
 }

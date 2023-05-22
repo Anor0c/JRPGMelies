@@ -7,7 +7,7 @@ public class HealthBehaviour : MonoBehaviour
 {
     [Header ("Scriptable")]
     [SerializeField] EnemyScrpitable enemyStat;
-    [SerializeField] PlayerScriptable playerStat;
+    [SerializeField] public PlayerScriptable playerStat;
 
     [SerializeField] float maxHealth = 10f, currentHealth;
     float previousMaxHealth; 

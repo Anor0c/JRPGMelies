@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MoveEnemyBehaviour : StateMachineBehaviour
 {
+    FlipPlayer flip; 
     PlayerMove player;
     NavMeshAgent AIAgent;
     float distanceToPlayer;
@@ -12,9 +13,10 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
    
     override public void OnStateEnter(Animator _animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        flip = _animator.GetComponentInChildren<FlipPlayer>(); 
+        Debug.Log(flip); 
         player = FindObjectOfType<PlayerMove>();
         AIAgent = _animator.GetComponent<NavMeshAgent>();
-        Debug.Log(AIAgent);
         _animator.SetBool("isMove", true);
         currentMoveTime = moveTimer; 
     }
@@ -23,9 +25,9 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        flip.FlipBossSprite(player.transform.position); 
         AIAgent.SetDestination(player.transform.position);
         currentMoveTime -= Time.deltaTime;
-        //Debug.Log("entr");
         if (currentMoveTime <= 0f)
         {
             animator.SetBool("isMove", false);

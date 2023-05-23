@@ -102,6 +102,51 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &783233473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783233474}
+  - component: {fileID: 783233475}
+  m_Layer: 0
+  m_Name: ProjectileSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783233474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783233473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5059869612337279163}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783233475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783233473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2389a0bf8e4790d4db2d2acf64157946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectil: {fileID: 0}
 --- !u!1 &1396006235
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101101534}
   - component: {fileID: 2101101535}
+  - component: {fileID: 628085994}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -340,6 +386,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &628085994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101101533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefdfd446633df649b88653aa51feeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5059869612247266442
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +411,7 @@ GameObject:
   - component: {fileID: 5059869612247266440}
   - component: {fileID: 5059869612247266454}
   m_Layer: 0
-  m_Name: CubeAttack
+  m_Name: CubeAttackCaC
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -433,6 +491,7 @@ GameObject:
   - component: {fileID: 5059869612337279161}
   - component: {fileID: 6609420630904414203}
   - component: {fileID: 1685423044}
+  - component: {fileID: 1458947171}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -455,6 +514,7 @@ Transform:
   - {fileID: 5059869612247266441}
   - {fileID: 246856092}
   - {fileID: 2101101534}
+  - {fileID: 783233474}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -505,7 +565,19 @@ MonoBehaviour:
         m_CallState: 2
   OnBossNextPhase:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1458947171}
+        m_TargetAssemblyTypeName: BosSwitchPhase, Assembly-CSharp
+        m_MethodName: BossChangePhase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &5059869612337279162
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -576,3 +648,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9f767f23daedb49894ec9bb11ee78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1458947171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059869612337279152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aff9462b57bb1444b46e694248652ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossStat: {fileID: 11400000, guid: 3cbe4a34854fad441899f5a499855367, type: 2}

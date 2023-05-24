@@ -8,6 +8,7 @@ public class ChangePlayerScriptable : MonoBehaviour
     [SerializeField] public PlayerScriptable[] statArray;
     [SerializeField] PlayerMove playerMove;
     [SerializeField] HealthBehaviour playerHealth;
+    [SerializeField] ChangeHealthUI changeHealthUI;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class ChangePlayerScriptable : MonoBehaviour
     {
         playerHealth.OnChangedPlayerScriptable(statArray[_index]);
         playerMove.OnChangeScriptable(statArray[_index]);
+        changeHealthUI.changeUIhealth();
         Debug.Log(statArray[_index]); 
     }  
 

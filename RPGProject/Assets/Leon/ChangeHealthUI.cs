@@ -10,9 +10,8 @@ public class ChangeHealthUI : MonoBehaviour
     private RectTransform blackBackgroundHealth;
     private RectTransform greenBackgroundHealth;
 
-    [SerializeField] private string tank;
-    [SerializeField] private string warrior;
-    [SerializeField] private string ninja;
+    [SerializeField] private string warriorMod;
+    [SerializeField] private string ninjaMod;
 
     // Start is called before the first frame update
     void Start()
@@ -21,36 +20,25 @@ public class ChangeHealthUI : MonoBehaviour
         greenBackgroundHealth = hpin.GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        changeUIhealth();
-    }
-
     public void changeUIhealth()
     {
-        Debug.Log("Le joueur est un " + playerMod.GetComponent<HealthBehaviour>().playerStat);
         var currentPlayerMod = playerMod.GetComponent<HealthBehaviour>().playerStat.ToString();
 
-        if (currentPlayerMod == warrior)
-            setUpUI(1280, 1180, -320);
+        if (currentPlayerMod == warriorMod)
+            setUpHealthUI(0.75f);
 
-        if (currentPlayerMod == ninja)
-            setUpUI(960, 860, -480);
+        if (currentPlayerMod == ninjaMod)
+            setUpHealthUI(0.5f);
     }
 
-    private void setUpUI(float widthBlack, float widthGreen, float localX)
+    private void setUpHealthUI(float widthRatio)
     {
-        var heightBlack = 70f;
-        var heightGreen = 50f;
-        var localYBlack = 579f;
-        var localYGreen = 569f;
-        var localZ = 0f;
+        var changeWidth = 1920 * widthRatio;
 
-        blackBackgroundHealth.sizeDelta = new Vector2(widthBlack, heightBlack);
-        blackBackgroundHealth.SetLocalPositionAndRotation(new Vector3(localX, localYBlack, localZ), transform.rotation);
+        blackBackgroundHealth.sizeDelta = new Vector2(changeWidth, blackBackgroundHealth.rect.height);
+        blackBackgroundHealth.position = new Vector3(changeWidth / 2, blackBackgroundHealth.position.y, blackBackgroundHealth.position.z);
 
-        greenBackgroundHealth.sizeDelta = new Vector2(widthGreen, heightGreen);
-        greenBackgroundHealth.SetLocalPositionAndRotation(new Vector3(localX, localYGreen, localZ), transform.rotation);
+        greenBackgroundHealth.sizeDelta = new Vector2(changeWidth - 100, greenBackgroundHealth.rect.height);
+        greenBackgroundHealth.position = new Vector3(changeWidth / 2, greenBackgroundHealth.position.y, greenBackgroundHealth.position.z);
     }
 }

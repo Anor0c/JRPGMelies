@@ -33,11 +33,11 @@ RectTransform:
   m_Father: {fileID: 8412348788842098052}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 750, y: -35}
-  m_SizeDelta: {x: 1500, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 70}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6389448947132598868
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -110,11 +110,11 @@ RectTransform:
   m_Father: {fileID: 8412348788842098052}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720, y: -35}
-  m_SizeDelta: {x: 1400, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 1820, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1878768977927269943
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 4835919292971343478}
   - component: {fileID: 2731912301086611511}
   - component: {fileID: 5865084595345453929}
+  - component: {fileID: 5331554095373732516}
   m_Layer: 5
   m_Name: UIPlayerStatus
   m_TagString: Untagged
@@ -335,6 +336,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5331554095373732516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008507994884246624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28b7d0eb1164094f86cb39193fa006d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMod: {fileID: 1426395087189536514, guid: 36a5138b473d2d544bc13d5350df7fa6,
+    type: 3}
+  hpbg: {fileID: 266172406467566085}
+  hpin: {fileID: 417086782438254556}
+  warriorMod: 2_Warior (Player Scriptable)
+  ninjaMod: 3_GlassCannon (Player Scriptable)
 --- !u!1 &4293008102995624972
 GameObject:
   m_ObjectHideFlags: 0

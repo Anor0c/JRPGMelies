@@ -97,7 +97,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -6558766234516267214}
   - {fileID: 6252210633030140600}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -1000069335095790847}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -112,6 +113,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-1000069335095790847
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d172bf1d609b9441a456488b2afd3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-775708065643488699
 AnimatorState:
   serializedVersion: 6
@@ -154,14 +167,14 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: isAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -187,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a041fc43e7be747949769a7724e6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idleTimer: 5
+  currentTime: 0
 --- !u!114 &760363295128283845
 MonoBehaviour:
   m_ObjectHideFlags: 1

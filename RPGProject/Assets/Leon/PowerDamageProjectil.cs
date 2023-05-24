@@ -12,6 +12,6 @@ public class PowerDamageProjectil : MonoBehaviour
 
     private void Update()
     {
-        myRigidBody.AddForce(transform.position * speedForce);
+        myRigidBody.AddForce(transform.forward* speedForce);
     }
 }

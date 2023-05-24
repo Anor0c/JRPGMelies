@@ -23,7 +23,6 @@ public class AttackDamage : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         hitbox.gameObject.SetActive(false);
-        Debug.Log("attack end!!");
         yield return null;
     }
     //OnTriggerEnter ne marche qu'avec les GameObject ave un rigidBody ou un Chracter Controller pour une raison mystique

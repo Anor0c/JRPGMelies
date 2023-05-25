@@ -13,12 +13,11 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
    
     override public void OnStateEnter(Animator _animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        flip = _animator.GetComponentInChildren<FlipPlayer>(); 
-        Debug.Log(flip); 
+        flip = _animator.GetComponentInChildren<FlipPlayer>();  
         player = FindObjectOfType<PlayerMove>();
         AIAgent = _animator.GetComponent<NavMeshAgent>();
         _animator.SetBool("isMove", true);
-        currentMoveTime = moveTimer; 
+        currentMoveTime = moveTimer+ Random.Range(-3,2); 
     }
 
  
@@ -32,7 +31,6 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
         {
             animator.SetBool("isMove", false);
             AIAgent.SetDestination(AIAgent.transform.position);
-            Debug.Log("time0000");
         }
         else
         {
@@ -49,6 +47,10 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
         if (distanceToPlayer <= 1f)
         {
             animator.SetBool("isAttack", true);
+        }
+        else
+        {
+            animator.SetBool("isAttackRange", true); 
         }
     }
 

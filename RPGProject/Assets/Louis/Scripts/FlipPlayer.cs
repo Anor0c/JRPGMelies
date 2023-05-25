@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlipPlayer : MonoBehaviour
 {
+    [SerializeField] ColliderFlipBoss colliderFlipBoss; 
     SpriteRenderer sprite;
     Vector3 playerComparaison;
     Transform thisTransform; 
@@ -29,11 +30,13 @@ public class FlipPlayer : MonoBehaviour
         playerComparaison = thisTransform.position - _playerPos;
         if (playerComparaison.x < 0)
         {
-            sprite.flipX = true; 
+            sprite.flipX = true;
+            colliderFlipBoss.Flip(); 
         }
         else
         {
             sprite.flipX = false;
+            colliderFlipBoss.Flip(); 
         }
     }
 }

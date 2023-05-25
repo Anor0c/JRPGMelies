@@ -15,4 +15,4 @@ MonoBehaviour:
   ennemyName: 
   maxHealth: 10
   speed: 10
-  controller: {fileID: 9100000, guid: 6fb7560f8609dd2459a14faf64bc59de, type: 2}
+  controller: {fileID: 9100000, guid: 0eed1b65fd08ecc498b50203f6c0318b, type: 2}

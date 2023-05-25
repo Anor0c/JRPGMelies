@@ -36,7 +36,11 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
             }
             else
             {
-                animator.SetBool("isAttackRange", true);
+                int random = Random.Range(0, 1);
+                if (random == 0)
+                    animator.SetBool("isAttackRange", true);
+                else
+                    animator.SetBool("isAttack", true); 
             }
             animator.SetBool("isMove", false);
             AIAgent.SetDestination(AIAgent.transform.position);

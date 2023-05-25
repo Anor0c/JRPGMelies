@@ -21,9 +21,11 @@ public class ChangePlayerScriptable : MonoBehaviour
     public void OnEvolution()
     {
         statIndex++;
+        if (statIndex >= 3)
+            statIndex = 3; 
         ChangeStat(statIndex);
     }
-    public void ChangeStat(int _index)
+    void ChangeStat(int _index)
     {
         playerHealth.OnChangedPlayerScriptable(statArray[_index]);
         playerMove.OnChangeScriptable(statArray[_index]);

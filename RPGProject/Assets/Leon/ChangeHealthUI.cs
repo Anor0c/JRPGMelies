@@ -29,7 +29,6 @@ public class ChangeHealthUI : MonoBehaviour
 
     public void changeUIhealth()
     {
-        Debug.Log("Le joueur est un " + playerMod.GetComponent<HealthBehaviour>().playerStat);
         var currentPlayerMod = playerMod.GetComponent<HealthBehaviour>().playerStat.ToString();
 
         if (currentPlayerMod == warrior)

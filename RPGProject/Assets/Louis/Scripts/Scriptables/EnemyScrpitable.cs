@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor.Animations;
 
 [CreateAssetMenu(fileName = "EnemyType", menuName = "EnemyType", order = 2)]
 public class EnemyScrpitable : ScriptableObject
@@ -14,7 +13,7 @@ public class EnemyScrpitable : ScriptableObject
     public float speed;
 
     [Header("Animator")]
-    public AnimatorController controller;  
+    public RuntimeAnimatorController controller;  
 
     /*[Header("Basic sprite")]
     public SpriteRenderer baseSprite;

@@ -34,7 +34,6 @@ public class AttackDamage : MonoBehaviour
             if (other.gameObject.tag == _ignoreTag)
             {
                 _canAttack = false;
-                Debug.Log(other.gameObject.tag);
             }
         }
 

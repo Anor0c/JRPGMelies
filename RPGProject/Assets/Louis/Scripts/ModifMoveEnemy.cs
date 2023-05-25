@@ -21,9 +21,9 @@ public class ModifMoveEnemy : MonoBehaviour
         agent.ResetPath(); 
         agent.velocity +=_kbReceived;
         animator.SetFloat("stunDuration", _stunDuration); 
-        animator.SetBool("isStun", true); 
         animator.SetBool("isMove", false);
         animator.SetBool("isAttack", false); 
-        animator.CrossFade("Idle", 0);
+        animator.SetBool("isAttackRange", false); 
+        animator.CrossFade("Stun", 0);
     } 
 }

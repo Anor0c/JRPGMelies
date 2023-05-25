@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttRanDragon : StateMachineBehaviour
 {
+    [SerializeField] float attackTime=3f, currentTime; 
     RotateCollider rotate;
     InstanciateProjectil spawner;
     FlipPlayer flip; 
@@ -11,6 +12,7 @@ public class AttRanDragon : StateMachineBehaviour
     Vector3 aimVector; 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        currentTime = attackTime; 
         rotate = animator.GetComponentInChildren<RotateCollider>();
         spawner = animator.GetComponentInChildren<InstanciateProjectil>();
         flip = animator.GetComponentInChildren<FlipPlayer>(); 
@@ -18,9 +20,17 @@ public class AttRanDragon : StateMachineBehaviour
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        aimVector = playerTransform.position - animator.transform.position;  
-        spawner.createProjectil();
-        rotate.RotateOnInput(new Vector2(aimVector.x, aimVector.z).normalized);
-        flip.FlipBossSprite(playerTransform.position);
+        if (currentTime <= 0f)
+        {
+            animator.SetBool("isAttackRange", false);
+        }
+        else
+        {
+            currentTime -= Time.deltaTime;
+            aimVector = playerTransform.position - animator.transform.position;
+            spawner.createProjectil();
+            rotate.RotateOnInput(new Vector2(aimVector.x, aimVector.z).normalized);
+            flip.FlipBossSprite(playerTransform.position);
+        }
     }
 }

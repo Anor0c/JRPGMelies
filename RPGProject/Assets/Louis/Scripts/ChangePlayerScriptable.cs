@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangePlayerScriptable : MonoBehaviour
 {
+    [SerializeField] int defaultIdex = 0; 
     [SerializeField] [Range(0, 2)] int statIndex = 0;
     [SerializeField] public PlayerScriptable[] statArray;
     [SerializeField] PlayerMove playerMove;
@@ -19,7 +20,8 @@ public class ChangePlayerScriptable : MonoBehaviour
     }
     private void Start()
     {
-        ChangeStat(0);  
+        statIndex = defaultIdex;
+        ChangeStat(statIndex);  
     }
     public void OnEvolution()
     {

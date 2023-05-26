@@ -41,13 +41,17 @@ public class AttackDamage : MonoBehaviour
         {
             other.gameObject.TryGetComponent(out HealthBehaviour enemyHealth);
             if (!enemyHealth)
-                return;
-            if (knockBack)
+                gameObject.SetActive(false);
+            else
             {
-                knockBack.OnAttackTouched(other); 
+                if (knockBack)
+                {
+                    knockBack.OnAttackTouched(other);
+                }
+                enemyHealth.TakeDamage(damage);
+                gameObject.SetActive(false);
             }
-            enemyHealth.TakeDamage(damage);
-            gameObject.SetActive(false);
+
         }
 
     }

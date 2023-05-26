@@ -1,5 +1,3 @@
-using System.Collections; 
-using System.Collections.Generic; 
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,7 +28,7 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
         {
             var _distanceVector = AIAgent.transform.position - player.transform.position;
             distanceToPlayer = _distanceVector.magnitude;
-            if (distanceToPlayer < 1f)
+            if (distanceToPlayer < 5f)
             {
                 animator.SetBool("isAttack", true);
             }

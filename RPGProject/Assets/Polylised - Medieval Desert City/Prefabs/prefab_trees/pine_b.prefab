@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4489991088389626}
   - component: {fileID: 33859711841223604}
   - component: {fileID: 23331283249850160}
+  - component: {fileID: 1211559331129708284}
   m_Layer: 0
   m_Name: pine_b
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1211559331129708284
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238566819580450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.741607
+  m_Height: 6.8541503
+  m_Direction: 2
+  m_Center: {x: -0.25828126, y: 0.14907534, z: 3.3450484}

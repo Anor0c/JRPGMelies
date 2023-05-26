@@ -9,9 +9,11 @@ public class ChangePlayerScriptable : MonoBehaviour
     [SerializeField] PlayerMove playerMove;
     [SerializeField] HealthBehaviour playerHealth;
     [SerializeField] ChangeHealthUI changeHealthUI;
+    [SerializeField] new SpriteRenderer renderer; 
 
     private void Awake()
     {
+        renderer = GetComponentInChildren<SpriteRenderer>(); 
         playerMove = GetComponent<PlayerMove>();
         playerHealth = GetComponent<HealthBehaviour>();
     }
@@ -22,16 +24,16 @@ public class ChangePlayerScriptable : MonoBehaviour
     public void OnEvolution()
     {
         statIndex++;
-        if (statIndex >= 3)
-            statIndex = 3; 
+        if (statIndex >= 2)
+            statIndex = 2; 
         ChangeStat(statIndex);
     }
     void ChangeStat(int _index)
     {
+        renderer.sprite = statArray[_index].sprite; 
         playerHealth.OnChangedPlayerScriptable(statArray[_index]);
         playerMove.OnChangeScriptable(statArray[_index]);
         changeHealthUI.changeUIhealth();
-        Debug.Log(statArray[_index]); 
     }  
 
 }

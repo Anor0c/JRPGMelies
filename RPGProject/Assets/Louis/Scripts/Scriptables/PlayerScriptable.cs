@@ -13,16 +13,8 @@ public class PlayerScriptable : ScriptableObject
     public float dashDuration;
     [Header("Attack")]
     public float attackSpeed;
+    [Header("Visuals")]
+    public Sprite sprite;
+    public RuntimeAnimatorController controller; 
 
-    public enum State
-    {
-        Tank,
-        Warrior,
-        Ninja
-    }
-
-    public void SwitchState()
-    {
-
-    }
 }

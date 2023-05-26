@@ -17,3 +17,5 @@ MonoBehaviour:
   dashSpeed: 12.5
   dashDuration: 0.2
   attackSpeed: 0.4
+  sprite: {fileID: 21300000, guid: f0d0c02ef39f58245b5e8ab7142b66a3, type: 3}
+  controller: {fileID: 0}

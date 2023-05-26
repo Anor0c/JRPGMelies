@@ -12,7 +12,7 @@ public class HealthBehaviour : MonoBehaviour
     [SerializeField] float maxHealth = 10f, currentHealth;
     float previousMaxHealth; 
     [SerializeField] Image healthUI;
-
+    bool nextPhaseDone = false; 
     public UnityEvent OnDeath, OnBossNextPhase;
     private void Awake()
     {
@@ -69,8 +69,9 @@ public class HealthBehaviour : MonoBehaviour
         {
             OnDeath.Invoke();
         }
-        if(currentHealth/maxHealth<=0.5f)
+        if(currentHealth/maxHealth<=0.5f&&!nextPhaseDone)
         {
+            nextPhaseDone = true; 
             OnBossNextPhase.Invoke(); 
         }
     }

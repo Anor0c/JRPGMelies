@@ -6,7 +6,7 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
     FlipPlayer flip; 
     PlayerMove player;
     NavMeshAgent AIAgent;
-    float distanceToPlayer;
+    float distanceToPlayer, distanceToCaC = 7;
     [SerializeField]float moveTimer = 1f, currentMoveTime; 
    
     override public void OnStateEnter(Animator _animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,26 +19,29 @@ public class MoveEnemyBehaviour : StateMachineBehaviour
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        var _distanceVector = AIAgent.transform.position - player.transform.position;
+        distanceToPlayer = _distanceVector.magnitude;
         flip.FlipBossSprite(player.transform.position);
         AIAgent.SetDestination(player.transform.position);
+        if (distanceToPlayer < distanceToCaC)
+        {
+            animator.SetBool("isAttack", true);
+            animator.SetBool("isMove", false);
+            AIAgent.SetDestination(AIAgent.transform.position);
+        }
         currentMoveTime -= Time.deltaTime;
         if (currentMoveTime >= 0f)
             return;
         else
         {
-            var _distanceVector = AIAgent.transform.position - player.transform.position;
-            distanceToPlayer = _distanceVector.magnitude;
-            if (distanceToPlayer < 5f)
+
+            if (distanceToPlayer < distanceToCaC)
             {
                 animator.SetBool("isAttack", true);
             }
             else
             {
-                int random = Random.Range(0, 1);
-                if (random == 0)
-                    animator.SetBool("isAttackRange", true);
-                else
-                    animator.SetBool("isAttack", true); 
+                animator.SetBool("isAttackRange", true);
             }
             animator.SetBool("isMove", false);
             AIAgent.SetDestination(AIAgent.transform.position);

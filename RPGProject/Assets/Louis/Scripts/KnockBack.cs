@@ -32,7 +32,7 @@ public class KnockBack : MonoBehaviour
     }
     Vector3 KnockbackDirection()
     {
-        var _kbDir = recieverPos - transform.position + additionalVector;
+        var _kbDir = recieverPos - transform.position.normalized + additionalVector;
         _kbDir *= kbAmount;
         return _kbDir;
     }

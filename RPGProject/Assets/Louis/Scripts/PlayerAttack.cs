@@ -18,12 +18,9 @@ public class PlayerAttack : MonoBehaviour
         if (!ctx.started)
             return;
         if (!canAttack)
-        {
-            Debug.Log("can't cancel attack");
-        } 
+            return;  
         StartCoroutine(DelayRoutine());
         attackHitbox.gameObject.SetActive(true);
-        Debug.Log("Attack!!");
     }
     IEnumerator DelayRoutine()
     {

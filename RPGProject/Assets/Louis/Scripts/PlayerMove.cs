@@ -34,8 +34,6 @@ public class PlayerMove : MonoBehaviour
         playerStat = Resources.Load("ScriptableObjects/Players/Tank") as PlayerScriptable; 
         if (playerStat != null)
             OnChangeScriptable(playerStat);
-        else
-            Debug.Log("No Stat on " + this.gameObject); 
 
         controller = GetComponent<CharacterController>();
         currentSpeed = walkSpeed;

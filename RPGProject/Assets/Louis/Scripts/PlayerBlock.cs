@@ -10,12 +10,10 @@ public class PlayerBlock : MonoBehaviour
         if (ctx.performed)
         {
             blockHitbox.gameObject.SetActive(true);
-            Debug.Log("Blocking!!");
         }
         if (ctx.canceled)
         {
             blockHitbox.gameObject.SetActive(false);
-            Debug.Log("Stop Blocking!!");
         }
     }
 }

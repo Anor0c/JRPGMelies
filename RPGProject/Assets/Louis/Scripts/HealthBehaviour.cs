@@ -25,10 +25,7 @@ public class HealthBehaviour : MonoBehaviour
         {
             OnChangedEnemyScriptable(enemyStat); 
         }
-        else
-        {
-            Debug.Log("No stat on " + this.gameObject); 
-        }
+
     }
     void Start()
     {

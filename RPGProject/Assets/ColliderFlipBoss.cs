@@ -9,11 +9,11 @@ public class ColliderFlipBoss : MonoBehaviour
     {
         if (sprite.flipX == true)
         {
-            transform.localPosition = new Vector3(-6,0,0);  
+            transform.localPosition = new Vector3(6,0,0);  
         }
         else
         {
-            transform.localPosition = new Vector3(6,0,0);
+            transform.localPosition = new Vector3(-6,0,0);
         }
     }
 }

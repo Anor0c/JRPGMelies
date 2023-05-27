@@ -6,7 +6,7 @@ public class AttRanDragon : StateMachineBehaviour
 {
     [SerializeField] float attackTime=3f, currentTime; 
     RotateCollider rotate;
-    InstanciateProjectil spawner;
+    InstanciateProjectil[] spawner;
     FlipPlayer flip; 
     Transform playerTransform;
     Vector3 aimVector; 
@@ -14,7 +14,7 @@ public class AttRanDragon : StateMachineBehaviour
     {
         currentTime = attackTime; 
         rotate = animator.GetComponentInChildren<RotateCollider>();
-        spawner = animator.GetComponentInChildren<InstanciateProjectil>();
+        spawner = animator.GetComponentsInChildren<InstanciateProjectil>();
         flip = animator.GetComponentInChildren<FlipPlayer>(); 
         playerTransform = FindObjectOfType<PlayerMove>().transform; 
     }
@@ -28,7 +28,8 @@ public class AttRanDragon : StateMachineBehaviour
         {
             currentTime -= Time.deltaTime;
             aimVector = playerTransform.position - animator.transform.position;
-            spawner.createProjectil();
+            foreach (InstanciateProjectil _spawner in spawner)
+                _spawner.createProjectil();
             rotate.RotateOnInput(new Vector2(aimVector.x, aimVector.z).normalized);
             flip.FlipBossSprite(playerTransform.position);
         }

@@ -18,9 +18,9 @@ public class FlipPlayer : MonoBehaviour
     {
         if (_playerDir.x < 0)
         {
-            sprite.flipX = true; 
+            sprite.flipX = true;
         }
-        else
+        else if (_playerDir.x > 0) 
         {
             sprite.flipX = false; 
         }

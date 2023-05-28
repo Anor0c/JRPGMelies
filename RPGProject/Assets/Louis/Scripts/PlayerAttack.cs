@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] float attackDelay = 1f;
-    [SerializeField] bool canAttack = true;
+    public bool canAttack = true;
     [SerializeField] AttackDamage attackHitbox; 
 
     private void Start()

@@ -7,13 +7,15 @@ public class ChangePlayerScriptable : MonoBehaviour
     [SerializeField] int defaultIdex = 0; 
     [SerializeField] [Range(0, 2)] int statIndex = 0;
     [SerializeField] public PlayerScriptable[] statArray;
-    [SerializeField] PlayerMove playerMove;
-    [SerializeField] HealthBehaviour playerHealth;
+    PlayerMove playerMove;
+    HealthBehaviour playerHealth;
     [SerializeField] ChangeHealthUI changeHealthUI;
-    [SerializeField] new SpriteRenderer renderer; 
+     new SpriteRenderer renderer;
+    [SerializeField] Animator animator; 
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         renderer = GetComponentInChildren<SpriteRenderer>(); 
         playerMove = GetComponent<PlayerMove>();
         playerHealth = GetComponent<HealthBehaviour>();
@@ -35,7 +37,8 @@ public class ChangePlayerScriptable : MonoBehaviour
         renderer.sprite = statArray[_index].sprite; 
         playerHealth.OnChangedPlayerScriptable(statArray[_index]);
         playerMove.OnChangeScriptable(statArray[_index]);
-        changeHealthUI.changeUIhealth();
+        animator.runtimeAnimatorController = statArray[_index].controller; 
+        //changeHealthUI.changeUIhealth();
     }  
 
 }

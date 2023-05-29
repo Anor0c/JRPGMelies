@@ -576,7 +576,7 @@ Animator:
   m_GameObject: {fileID: 1763139792}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2f491cab8b69ac04d9cfd682884c3b55, type: 2}
+  m_Controller: {fileID: 9100000, guid: fae747fdf76567d4899b6fed65afddae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -746,6 +746,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2684283199659820145, guid: 6287d243840afd5418dcc45ad85ad020,
+        type: 3}
+      propertyPath: projectil
+      value: 
+      objectReference: {fileID: 7462670147255896902, guid: 21e4bd2dfc9fea642913b28263805ae9,
+        type: 3}
     - target: {fileID: 2684283200596816337, guid: 6287d243840afd5418dcc45ad85ad020,
         type: 3}
       propertyPath: bossStat
@@ -765,17 +771,17 @@ PrefabInstance:
     - target: {fileID: 7167542319523218697, guid: 6287d243840afd5418dcc45ad85ad020,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.288687
+      value: -6.27
       objectReference: {fileID: 0}
     - target: {fileID: 7167542319523218697, guid: 6287d243840afd5418dcc45ad85ad020,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167542319523218697, guid: 6287d243840afd5418dcc45ad85ad020,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.63802
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167542319523218697, guid: 6287d243840afd5418dcc45ad85ad020,
         type: 3}

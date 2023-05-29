@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canAim: 1
   cooldown: 0.2
-  projectil: {fileID: 7462670147255896902, guid: afd688f10f48ce64c9036114eb5cde60,
+  projectil: {fileID: 7462670147255896902, guid: 21e4bd2dfc9fea642913b28263805ae9,
     type: 3}
 --- !u!114 &2684283199796537926
 MonoBehaviour:
@@ -854,4 +854,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9462b57bb1444b46e694248652ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossStat: {fileID: 11400000, guid: 3cbe4a34854fad441899f5a499855367, type: 2}
+  bossStat: {fileID: 11400000, guid: d5a7e4c6894fbd9498ab63158fec16ea, type: 2}

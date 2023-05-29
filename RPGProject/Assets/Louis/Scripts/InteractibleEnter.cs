@@ -6,7 +6,13 @@ using UnityEngine.Events;
 public class InteractibleEnter : MonoBehaviour
 {
     public UnityEvent OnInteract;
+    [SerializeField] int nextSceneIndex; 
     PlayerInteract player;
+    SceneScript loader;
+    private void Start()
+    {
+        loader = FindObjectOfType<SceneScript>(); 
+    }
     private void OnTriggerEnter(Collider other)
     {
         player = other.gameObject.GetComponent<PlayerInteract>();
@@ -16,6 +22,7 @@ public class InteractibleEnter : MonoBehaviour
         if (player.isPressed)
         {
             OnInteract.Invoke();
+            loader.LoadLevel(nextSceneIndex); 
         }
     }
 }

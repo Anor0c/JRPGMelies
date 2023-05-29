@@ -912,13 +912,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
+      propertyPath: nextSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
+        type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
+        type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
@@ -927,9 +937,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
+        type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2007188358}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -943,12 +958,17 @@ PrefabInstance:
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ToCombat
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
+        type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
@@ -959,6 +979,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: SceneScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
+        type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2686097222886464047, guid: cd1954b114001664aac394761e39dac5,
         type: 3}
@@ -1070,24 +1095,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
---- !u!1 &2007188357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2686097222886464082, guid: cd1954b114001664aac394761e39dac5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1181071576}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2007188358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007188357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fed033a93de7ed4397d943281a4a9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2007188363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2686097222886464045, guid: cd1954b114001664aac394761e39dac5,

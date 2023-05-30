@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4314161194106378}
   - component: {fileID: 33141870199809740}
   - component: {fileID: 23075915665588336}
+  - component: {fileID: 7381543889481989120}
   m_Layer: 0
   m_Name: street_pond_a
   m_TagString: Untagged
@@ -86,3 +87,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7381543889481989120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063509788074128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.53083, y: 5.596846, z: 1.2403915}
+  m_Center: {x: 0.012081464, y: -0.0068680444, z: 0.6201954}

@@ -30,7 +30,7 @@ public class AttRanDragon : StateMachineBehaviour
             aimVector = playerTransform.position - animator.transform.position;
             foreach (InstanciateProjectil _spawner in spawner)
                 _spawner.createProjectil();
-            rotate.RotateOnInput(new Vector2(aimVector.x, aimVector.z).normalized);
+            rotate?.RotateOnInput(new Vector2(aimVector.x, aimVector.z).normalized);
             flip.FlipBossSprite(playerTransform.position);
         }
     }

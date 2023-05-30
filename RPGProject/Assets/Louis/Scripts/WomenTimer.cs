@@ -11,12 +11,13 @@ public class WomenTimer : MonoBehaviour
     }
     private void Update()
     {
+        if (currentTime < 0)
+            return; 
         currentTime -= Time.deltaTime;
         if (currentTime <= 0f)
         {
             OnTimerEnd.Invoke(); 
         }
     }
-
 
 }

@@ -22,15 +22,17 @@ public class PlayerAnim : MonoBehaviour
     {
         if (!ctx.performed)
             animator.SetBool("isDash", false);
-        else if (!playerAttack.canAttack)
-            animator.SetBool("isDash", false);
         else
-            animator.SetBool("isAttack", false); 
+            animator.SetBool("isDash", true);
     }
     public void OnAttack(InputAction.CallbackContext ctx)
     {
-        if (!ctx.performed)
+        if (ctx.performed)
             animator.SetBool("isAttack", false);
+        else
+            animator.SetBool("isAttack", false); 
+        if (!playerAttack.canAttack)
+            animator.SetBool("isAttack", false); 
         else
             animator.SetBool("isAttack", true); 
     }

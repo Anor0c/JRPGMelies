@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 1426395087189536516}
   - component: {fileID: 1426395087189536515}
   - component: {fileID: 8506650482095859064}
+  - component: {fileID: 2799485240452851693}
   - component: {fileID: 2340947037798854744}
   - component: {fileID: 7483438764746574428}
   - component: {fileID: 7483438764746574429}
@@ -430,6 +431,26 @@ MonoBehaviour:
   m_DefaultActionMap: Combat
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &2799485240452851693
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426395087189536514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2340947037798854744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,13 +612,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31ed4cae72b68840890577d74081670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultIdex: 0
   statIndex: 0
   statArray:
   - {fileID: 11400000, guid: e952cce20baa090458de74a4b996eac7, type: 2}
   - {fileID: 11400000, guid: 037e4670f981ff846b24aaeb43b8e180, type: 2}
   - {fileID: 11400000, guid: c226c89ed8dfd96479e70e04b2b51fd9, type: 2}
-  playerMove: {fileID: 0}
-  playerHealth: {fileID: 0}
+  changeHealthUI: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &2743853319926869239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,3 +730,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefdfd446633df649b88653aa51feeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliderFlipBoss: {fileID: 0}

@@ -18,4 +18,4 @@ MonoBehaviour:
   dashDuration: 0.1
   attackSpeed: 0.5
   sprite: {fileID: 21300000, guid: a60baa138588e2343adfde8229c07d61, type: 3}
-  controller: {fileID: 0}
+  controller: {fileID: 9100000, guid: fae747fdf76567d4899b6fed65afddae, type: 2}

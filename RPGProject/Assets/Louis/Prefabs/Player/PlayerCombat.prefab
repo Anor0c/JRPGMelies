@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 6083703129827710216}
   - component: {fileID: 6083703129827710222}
   - component: {fileID: 2743853319926869239}
+  - component: {fileID: 4569418583379043575}
   m_Layer: 0
   m_Name: PlayerCombat
   m_TagString: Invincible
@@ -376,12 +377,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4569418583379043575}
+        m_TargetAssemblyTypeName: PlayerAnim, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 65b8caf2-c463-49f9-b969-fd34d930bfd0
     m_ActionName: Combat/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7483438764746574429}
         m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4569418583379043575}
+        m_TargetAssemblyTypeName: PlayerAnim, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
@@ -408,12 +433,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4569418583379043575}
+        m_TargetAssemblyTypeName: PlayerAnim, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: abea82cc-8a04-4b19-be64-117591937a5e
     m_ActionName: Combat/Dash[/Keyboard/shift]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7483438764746574428}
         m_TargetAssemblyTypeName: PlayerBlock, Assembly-CSharp
+        m_MethodName: OnBlock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4569418583379043575}
+        m_TargetAssemblyTypeName: PlayerAnim, Assembly-CSharp
         m_MethodName: OnBlock
         m_Mode: 0
         m_Arguments:
@@ -633,6 +682,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagImmunity: Invincible
+--- !u!114 &4569418583379043575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426395087189536514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbbf3061b644fc4fb68fda9f67eced2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7990726990892978512
 GameObject:
   m_ObjectHideFlags: 0

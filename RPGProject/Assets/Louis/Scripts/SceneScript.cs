@@ -48,6 +48,10 @@ public class SceneScript : MonoBehaviour
     {
         loadingBar.fillAmount = Mathf.MoveTowards(loadingBar.fillAmount, target, 3 * Time.deltaTime); 
     }
+    public void ToQuit()
+    {
+        Application.Quit(); 
+    }
     public void ToCombat()
     {
         SceneManager.LoadScene(2);

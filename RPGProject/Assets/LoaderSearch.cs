@@ -15,4 +15,8 @@ public class LoaderSearch : MonoBehaviour
     {
         loader.LoadLevel(_nextSceneIndex); 
     }
+    public void Quit()
+    {
+        loader.ToQuit(); 
+    }
 }

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Leon/Scene/LastBossMap.unity
     guid: e5445b030b5e07246b5d5bce904fc315
+  - enabled: 1
+    path: Assets/Louis/Scenes/CreditScene.unity
+    guid: cf2e6d8e965f2c34b85190d5e87f2173
   m_configObjects: {}
